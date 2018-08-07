@@ -13,23 +13,29 @@ const users = [{
   name: 'test1',
   tokens: [{
     access: 'auth',
-    token: jwt.sign({_id: userOneId, access: 'auth'}, 'abc123').toString()
+    token: jwt.sign({_id: userOneId, access: 'auth'}, process.env.JWT_SECRET).toString()
   }]
 }, {
   _id: userTwoId,
   email: 'test2@gmail.com',
   password: '123456',
-  name: 'test2'
+  name: 'test2',
+  tokens: [{
+      access: 'auth',
+    token: jwt.sign({ _id: userTwoId, access: 'auth' }, process.env.JWT_SECRET).toString()
+    }]
 }];
 
 const dummy = [{
   _id: new ObjectID(),
-  text: 'first test'
+  text: 'first test',
+  _creater: userOneId
 }, {
   _id: new ObjectID(),
   text: 'second test',
   completed: true,
-  completedAt: 2333
+  completedAt: 2333,
+  _creater: userTwoId
 }];
 
 const populateTodos = (done) => {
