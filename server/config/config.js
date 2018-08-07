@@ -1,3 +1,12 @@
+// need config file config.json
+// config format like:
+// {
+//   "test": {
+//   "PORT": 3000,
+//   "MONGODB_URI": "mongodb://127.0.0.1:27017/TodoAppTest",
+//   "JWT_SECRET": "12345678test"
+// }
+
 const env = process.env.NODE_ENV || 'development';
 console.log('env *****', env);
 
