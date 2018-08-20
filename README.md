@@ -17,11 +17,25 @@ The server is deployed on Heroku, url is https://afternoon-tundra-32854.herokuap
 #### sign up
 - URL: 
 
-`/users`
+  `/users`
 - Method: 
 
-`POST`
+  `POST`
 - Data Params: 
+
+  Required:
+  ```
+  {
+    "email": [string],
+    "password": [string]
+  }
+  ```
+  Optional:
+  ```
+  {
+    "name": [string]
+  }
+  ```
 - Success Response:
 - Error Response:
 - Sample Call:
