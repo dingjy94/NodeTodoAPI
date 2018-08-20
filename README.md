@@ -15,6 +15,8 @@ The server is deployed on Heroku, url is https://afternoon-tundra-32854.herokuap
 
 ### User Sign up/Log in/Log out/Authentication
 #### sign up
+
+Create a new user.
 - URL: 
 
   `/users`
