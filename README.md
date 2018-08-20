@@ -67,7 +67,7 @@ Create a new user.
     }
   }
   ```
-  #### log in
+#### log in
 
 log in (get X-Auth).
 - URL: 
