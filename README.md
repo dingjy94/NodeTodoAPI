@@ -13,6 +13,7 @@ A REST APIs server that users can sign up and store and manipulate their own tod
 ## Instruction
 The server is deployed on Heroku, url is https://afternoon-tundra-32854.herokuapp.com. This is REST APIs and I haven't finished the user interface part yet, so I recommend to use tools such as [Postman](https://www.getpostman.com/) to send request and test the application. All data format is JSON.
 
+## API Document
 ### User Sign up/Log in/Log out/Authentication
 #### sign up
 
@@ -66,7 +67,43 @@ Create a new user.
     }
   }
   ```
-- Sample Call:
+  #### log in
+
+log in (get X-Auth).
+- URL: 
+
+  `/users/login`
+- Method: 
+
+  `POST`
+- Data Params: 
+
+  Required:
+  ```
+  {
+    "email": [string],
+    "password": [string]
+  }
+  ```
+  Optional:
+  ```
+  {
+    "name": [string]
+  }
+  ```
+- Success Response:
+  - Code: 200
+  - Content: 
+  ```
+  {
+    "_id": "5b7b3417ece600140033f6e5",
+    "email": "dingjy94@test1.com",
+    "name": "Jingyi"
+  }
+  ```
+  - Header: `X-Auth` in response header.
+- Error Response:
+  - Code: 400 Bad Request
 
 ### Access and Manipulate Todos
 
