@@ -11,9 +11,19 @@ A REST APIs server that users can sign up and store and manipulate their own tod
 - [ ] User interface (learning React)
 
 ## Instruction
-The server is deployed on Heroku, url is https://afternoon-tundra-32854.herokuapp.com. This is REST APIs and I haven't finished the user interface part yet, so I recommend to use tools such as [Postman](https://www.getpostman.com/) to send request and test the application.
+The server is deployed on Heroku, url is https://afternoon-tundra-32854.herokuapp.com. This is REST APIs and I haven't finished the user interface part yet, so I recommend to use tools such as [Postman](https://www.getpostman.com/) to send request and test the application. All data format is JSON.
 
 ### User Sign up/Log in/Log out/Authentication
+#### sign up
+- URL: 
+`/users`
+- Method: 
+`POST`
+- Data Params: 
+- Success Response:
+- Error Response:
+- Sample Call:
+
 ### Access and Manipulate Todos
 
 ## Dependencies
