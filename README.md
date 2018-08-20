@@ -14,3 +14,17 @@ A REST APIs server that users can sign up and store and manipulate their own tod
 The server is deployed on Heroku, url is https://afternoon-tundra-32854.herokuapp.com. This is REST APIs and I haven't finished the user interface part yet, so I recommend to use tools such as [Postman](https://www.getpostman.com/) to send request and test the application.
 
 ### User Sign up/Log in/Log out/Authentication
+### Access and Manipulate Todos
+
+## Dependencies
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- bcrypt.js
+- body-parser
+- crypto-js
+- jsonwebtoken
+- lodash
+- validator
+- Mocha(test)
