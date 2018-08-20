@@ -37,7 +37,33 @@ The server is deployed on Heroku, url is https://afternoon-tundra-32854.herokuap
   }
   ```
 - Success Response:
+  - Code: 200
+  - Content: 
+  ```
+  {
+    "_id": "5b7b3417ece600140033f6e5",
+    "email": "dingjy94@test1.com",
+    "name": "Jingyi"
+  }
+  ```
 - Error Response:
+  - Code: 400 Bad Request
+  - Content: 
+  ```
+  {
+    "code": 11000,
+    "index": 0,
+    "errmsg": "E11000 duplicate key error index: heroku_6hdznctz.users.$email_1 dup key: { :      \"dingjy94@test.com\" }",
+    "op": {
+        "email": "dingjy94@test.com",
+        "name": "Jingyi",
+        "password": "$2a$10$9dSOBYtOL0uzXQ909lF/ZOcrYqmVn72KxVhTn27De0W.z0QP/oQY2",
+        "_id": "5b7b3376ece600140033f6e4",
+        "tokens": [],
+        "__v": 0
+    }
+  }
+  ```
 - Sample Call:
 
 ### Access and Manipulate Todos
