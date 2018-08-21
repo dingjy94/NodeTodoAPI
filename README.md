@@ -69,7 +69,7 @@ Create a new user.
   ```
 #### log in
 
-log in (get X-Auth).
+User log in. If email and passworkd are correct, server generate x-auth and send that to client.
 - URL: 
 
   `/users/login`
@@ -130,9 +130,206 @@ Use x-auth to get current user information.
   ```
 - Error Response:
   - Code: 400 Bad Request
+  
+#### log out
+
+Log out, server will delete current user's x-auth from database.
+- URL: 
+
+  `/users/me/token`
+- Method: 
+
+  `DELETE`
+- URL Params:
+  Required:
+  `x-auth=[current user's x-auth]`
+
+- Success Response:
+  - Code: 200
+- Error Response:
+  - Code: 401 Unauthorized
 
 ### Access and Manipulate Todos
+#### create todo
 
+Create a todo event.
+- URL: 
+
+  `/todos`
+- Method: 
+
+  `POST`
+- URL Params:
+  Required:
+  `x-auth=[current user's x-auth]`
+  `Content-Type=application/json`
+  
+- Data Params: 
+
+  Required:
+  ```
+  {
+    "text": [string]
+  }
+  ```
+
+- Success Response:
+  - Code: 200
+  - Content: 
+  ```
+  {
+    "__v": 0,
+    "text": "Get up early",
+    "_creater": "5b6925f29b24a41400bd7715",
+    "_id": "5b7b71e80a5e271400edb31e",
+    "completedAt": null,
+    "completed": false
+  }
+  ```
+- Error Response:
+  - Code: 401 Unauthorized
+
+#### get todos
+
+get current user's todos list.
+- URL: 
+
+  `/todos`
+- Method: 
+
+  `GET`
+- URL Params:
+  Required:
+  `x-auth=[current user's x-auth]`
+  
+- Success Response:
+  - Code: 200
+  - Content: 
+  ```
+  {
+    "todos": [
+        {
+            "_id": "5b6926ff9b24a41400bd7718",
+            "text": "Get up early",
+            "_creater": "5b6925f29b24a41400bd7715",
+            "__v": 0,
+            "completedAt": null,
+            "completed": false
+        },
+        {
+            "_id": "5b7b71e80a5e271400edb31e",
+            "text": "Get up early",
+            "_creater": "5b6925f29b24a41400bd7715",
+            "__v": 0,
+            "completedAt": null,
+            "completed": false
+        }
+    ]
+  }
+  ```
+- Error Response:
+  - Code: 401 Unauthorized
+
+#### get todo
+
+Get user's todo by id.
+- URL: 
+
+  `/todos/:id`
+- Method: 
+
+  `GET`
+- URL Params:
+  Required:
+  `x-auth=[current user's x-auth]`
+- Success Response:
+  - Code: 200
+  - Content: 
+  ```
+  {
+    "todo": {
+        "_id": "5b6614f940336072bce67c45",
+        "text": "second test",
+        "completedAt": null,
+        "completed": false
+    }
+  }
+  ```
+- Error Response:
+  - Code: 401 Unauthorized
+  - Code: 404 Not found
+
+#### delete todo
+
+Get user's todo by id.
+- URL: 
+
+  `/todos/:id`
+- Method: 
+
+  `DELETE`
+- URL Params:
+  Required:
+  `x-auth=[current user's x-auth]`
+- Success Response:
+  - Code: 200
+  - Content: 
+  ```
+  {
+    "todo": {
+        "_id": "5b7b75690a5e271400edb321",
+        "text": "Get up early",
+        "_creater": "5b7adf19e6734f14007576cf",
+        "__v": 0,
+        "completedAt": null,
+        "completed": false
+    }
+  }
+  ```
+- Error Response:
+  - Code: 401 Unauthorized
+  - Code: 404 Not found
+  
+#### update todo
+
+Update user's todo by id.
+- URL: 
+
+  `/todos/:id`
+- Method: 
+
+  `PATCH`
+- URL Params:
+  Required:
+  `x-auth=[current user's x-auth]`
+- Data Params: 
+
+  Required:
+  ```
+  {
+    "text": [string] 
+    OR
+    "completed": [boolean]
+  }
+  ```
+- Success Response:
+  - Code: 200
+  - Content: 
+  ```
+  {
+    "todo": {
+        "_id": "5b7b75690a5e271400edb321",
+        "text": "Get up early",
+        "_creater": "5b7adf19e6734f14007576cf",
+        "__v": 0,
+        "completedAt": null,
+        "completed": false
+    }
+  }
+  ```
+- Error Response:
+  - Code: 401 Unauthorized
+  - Code: 404 Not found
 ## Dependencies
 - Node.js
 - Express.js
