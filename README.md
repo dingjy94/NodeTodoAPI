@@ -105,6 +105,32 @@ log in (get X-Auth).
 - Error Response:
   - Code: 400 Bad Request
 
+#### get me
+
+Use x-auth to get current user information.
+- URL: 
+
+  `/users/me`
+- Method: 
+
+  `GET`
+- URL Params:
+  Required:
+  `x-auth=[current user's x-auth]`
+
+- Success Response:
+  - Code: 200
+  - Content: 
+  ```
+  {
+    "_id": "5b7b3417ece600140033f6e5",
+    "email": "dingjy94@test1.com",
+    "name": "Jingyi"
+  }
+  ```
+- Error Response:
+  - Code: 400 Bad Request
+
 ### Access and Manipulate Todos
 
 ## Dependencies
